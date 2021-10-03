@@ -153,7 +153,9 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
       sources: sources,
       autostart: false,
       image: "https://img.youtube.com/vi/" + response.videoId + "/sddefault.jpg",
-      title: response.title
+      title: response.title,
+      flashplayer: "/jwplayer.flash.swf"
+      // preload: "none",
     });
   }
 });
