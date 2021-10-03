@@ -157,6 +157,16 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
       flashplayer: "/jwplayer.flash.swf"
       // preload: "none",
     });
+    // Download button
+    playerInstance.addButton('/downloadButton.svg', 'Download Video', function(){
+        var videoSrc = jwplayer("player").getPlaylist()[0];
+        var link = document.createElement("a");
+        link.setAttribute('download', videoSrc['title']);
+        link.href = videoSrc['file'];
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+    }, 'download-video-button');
   }
 });
 
