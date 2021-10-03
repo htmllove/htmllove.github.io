@@ -144,7 +144,9 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
         });
     });
     console.info('result', sources);
-    window.title = response.title;
+
+    document.title = response.title;
+
     // JWPlayer Init
     var playerInstance = jwplayer("player");
     playerInstance.setup({
