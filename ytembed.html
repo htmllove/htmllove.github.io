@@ -144,12 +144,14 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
         });
     });
     console.info('result', sources);
+    window.title = response.title;
     // JWPlayer Init
     var playerInstance = jwplayer("player");
     playerInstance.setup({
       sources: sources,
       autostart: false,
-      image: "https://img.youtube.com/vi/" + response.videoId + "/sddefault.jpg"
+      image: "https://img.youtube.com/vi/" + response.videoId + "/sddefault.jpg",
+      title: response.title
     });
   }
 });
