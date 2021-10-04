@@ -175,6 +175,17 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
     jwplayer("player").on('jwplayerFullscreen', function (e) {
         alert(1);
     });
+    document.querySelector('.jw-icon-fullscreen').onclick = function(){
+        if( (screen.availHeight || screen.height-30) <= window.innerHeight) {
+            if(window.screen.orientation){
+                window.screen.orientation.lock("landscape").catch(function() {});
+            }
+        } else {
+           if(window.screen.orientation){
+               window.screen.orientation.unlock();
+           }
+        }
+    };
   }
 });
 
