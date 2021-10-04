@@ -1,242 +1,187 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta name="referrer" content="no-referrer">
-  <meta name="viewport" content="width=device-width">
-  <title>Change title quality in JWPlayer</title>
-  <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-  <link rel="manifest" href="/site.webmanifest">
-  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-  <meta name="msapplication-TileColor" content="#da532c">
-  <meta name="theme-color" content="#ffffff">
-  <!--<script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>-->
-  <script src="/jwplayer.js"></script>
-  <script type="text/javascript">jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";</script>
-  <style type="text/css">
-    html,body{height:100%;padding:0;margin:0;overflow:hidden}body{font-family:'Open Sans',sans-serif;font-size:28px;}@media(max-height:150px) and (max-width:400px){body{font-size:18px}}@media(max-height:50px) and (max-width:200px){body{font-size:14px}}#wrapvideo, #player{height:100%;text-align:center;margin:auto;padding:0}
-    
-    #wrapvideo, #player {
-      width: 100%!important;
-      height: 100%!important;
-    }
-  </style>
-  <style> 
-    #wrapvideo {
-      display: inline-block;
-      color: white;
-      background-color: black;
-    }
-    #wrapvideo p {
-      text-align: center;
-    }
-    .jwplayer .jw-preview{
-      background-size: cover!important;
-    }
-    .jw-icon.jw-icon-display.jw-button-color.jw-reset{
-      color: rgb(255 0 0 / .8);
-      border: 1px solid rgb(255 0 0 / .8);
-      border-radius: 4px;
-      background: rgba(0,0,0,0.5);
-      padding: 8px;
-    }
-    div[button="download-video-button"]>div:first-child{
-      filter: contrast(0);
-    }
-  </style>
+	<meta name="referrer" content="no-referrer">
+	<meta name="viewport" content="width=device-width">
+	<title>Change title quality in JWPlayer</title>
+	<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+	<!--<script src="https://ssl.p.jwpcdn.com/player/v/8.1.3/jwplayer.js"></script>-->
+	<script src="/jwplayer.js"></script>
+	<script type="text/javascript">jwplayer.key = "W7zSm81+mmIsg7F+fyHRKhF3ggLkTqtGMhvI92kbqf/ysE99";</script>
+	<style type="text/css">
+		html,body{height:100%;padding:0;margin:0;overflow:hidden}body{font-family:'Open Sans',sans-serif;font-size:28px;}@media(max-height:150px) and (max-width:400px){body{font-size:18px}}@media(max-height:50px) and (max-width:200px){body{font-size:14px}}#wrapvideo, #player{height:100%;text-align:center;margin:auto;padding:0}
+
+		#wrapvideo, #player {
+			width: 100%!important;
+			height: 100%!important;
+		}
+	</style>
+	<style> 
+		#wrapvideo {
+			display: inline-block;
+			color: white;
+			background-color: black;
+		}
+		#wrapvideo p {
+			text-align: center;
+		}
+		.jwplayer .jw-preview{
+			background-size: cover!important;
+		}
+		.jw-icon.jw-icon-display.jw-button-color.jw-reset{
+			color: rgb(255 0 0 / .8);
+			border: 1px solid rgb(255 0 0 / .8);
+			border-radius: 4px;
+			background: rgba(0,0,0,0.5);
+			padding: 8px;
+		}
+		div[button="download-video-button"]>div:first-child{
+			filter: contrast(0);
+		}
+	</style>
 </head>
 <body>
-  <div id="wrapvideo">
-    <div id='player'></div> 
-  </div>
-  <script>
-    var ajax = {};
-    ajax.x = function () {
-      if (typeof XMLHttpRequest !== 'undefined') {
-        return new XMLHttpRequest();
-      }
-      var versions = [
-      "MSXML2.XmlHttp.6.0",
-      "MSXML2.XmlHttp.5.0",
-      "MSXML2.XmlHttp.4.0",
-      "MSXML2.XmlHttp.3.0",
-      "MSXML2.XmlHttp.2.0",
-      "Microsoft.XmlHttp"
-      ];
+	<div id="wrapvideo">
+		<div id='player'></div> 
+	</div>
+	<script>
+		var ajax = {};
+		ajax.x = function () {
+			if (typeof XMLHttpRequest !== 'undefined') {
+				return new XMLHttpRequest();
+			}
+			var versions = [
+			"MSXML2.XmlHttp.6.0",
+			"MSXML2.XmlHttp.5.0",
+			"MSXML2.XmlHttp.4.0",
+			"MSXML2.XmlHttp.3.0",
+			"MSXML2.XmlHttp.2.0",
+			"Microsoft.XmlHttp"
+			];
 
-      var xhr;
-      for (var i = 0; i < versions.length; i++) {
-        try {
-          xhr = new ActiveXObject(versions[i]);
-          break;
-        } catch (e) {
-        }
-      }
-      return xhr;
-    };
+			var xhr;
+			for (var i = 0; i < versions.length; i++) {
+				try {
+					xhr = new ActiveXObject(versions[i]);
+					break;
+				} catch (e) {
+				}
+			}
+			return xhr;
+		};
 
-    ajax.send = function (url, callback, method, data, async) {
-      if (async === undefined) {
-        async = true;
-      }
-      var x = ajax.x();
-      x.open(method, url, async);
-      x.onreadystatechange = function () {
-        if (x.readyState == 4) {
-          callback(x.responseText)
-        }
-      };
-      if (method == 'POST') {
-        x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
-      } else if(method == 'GET') {
-        origin = url.split( '/' );
-        origin = origin[0] + '//' + origin[2];
-        console.info(origin);
-        x.setRequestHeader('origin', origin);
-      }
-      x.send(data)
-    };
+		ajax.send = function (url, callback, method, data, async) {
+			if (async === undefined) {
+				async = true;
+			}
+			var x = ajax.x();
+			x.open(method, url, async);
+			x.onreadystatechange = function () {
+				if (x.readyState == 4) {
+					callback(x.responseText)
+				}
+			};
+			if (method == 'POST') {
+				x.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+			} else if(method == 'GET') {
+				origin = url.split( '/' );
+				origin = origin[0] + '//' + origin[2];
+				console.info(origin);
+				x.setRequestHeader('origin', origin);
+			}
+			x.send(data)
+		};
 
-    ajax.get = function (url, data, callback, async) {
-      var query = [];
-      for (var key in data) {
-        query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
-      }
-      ajax.send(url + (query.length ? '?' + query.join('&') : ''), callback, 'GET', null, async)
-    };
+		ajax.get = function (url, data, callback, async) {
+			var query = [];
+			for (var key in data) {
+				query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+			}
+			ajax.send(url + (query.length ? '?' + query.join('&') : ''), callback, 'GET', null, async)
+		};
 
-    ajax.post = function (url, data, callback, async) {
-      var query = [];
-      for (var key in data) {
-        query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
-      }
-      ajax.send(url, callback, 'POST', query.join('&'), async)
-    };
+		ajax.post = function (url, data, callback, async) {
+			var query = [];
+			for (var key in data) {
+				query.push(encodeURIComponent(key) + '=' + encodeURIComponent(data[key]));
+			}
+			ajax.send(url, callback, 'POST', query.join('&'), async)
+		};
 
-    function getParameterByName(name, url = window.location.href) {
-      name = name.replace(/[\[\]]/g, '\\$&');
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-      results = regex.exec(url);
-      if (!results) return null;
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
+		function getParameterByName(name, url = window.location.href) {
+			name = name.replace(/[\[\]]/g, '\\$&');
+			var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+			results = regex.exec(url);
+			if (!results) return null;
+			if (!results[2]) return '';
+			return decodeURIComponent(results[2].replace(/\+/g, ' '));
+		}
 
-    var ytid_get = getParameterByName('ytid');
-    var ytid = ytid_get ? ytid_get : 'Htb4_Vuovi0';
-    console.info(ytid_get);
-/*if(window.location.hash){
-  console.info(ytid);
-  ytid = window.location.hash.slice(1);
-}*/
+		var ytid_get = getParameterByName('ytid');
+		var ytid = ytid_get ? ytid_get : 'Htb4_Vuovi0';
+		console.info(ytid_get);
+		/*if(window.location.hash){
+		  console.info(ytid);
+		  ytid = window.location.hash.slice(1);
+		}*/
 
-ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(response) {
-  if(response.indexOf('{"') > -1){
-    response = JSON.parse(response);
-    console.info(response.formatStreams);
-    //response.formatStreams 
-    sources = [];
-    response.formatStreams.forEach(function(item, i, arr) {
-      if(!item.resolution || item.resolution == '144p') return;
-      sources.push({
-        file: item.url,
-        label: item.resolution,
-        type: "mp4",
-        default: true
-          //type: "video/webm; codecs=\"vp9\""
-        });
-    });
-    console.info('result', sources);
+		ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(response) {
+			if(response.indexOf('{"') > -1){
+				response = JSON.parse(response);
+				console.info(response.formatStreams);
+			    //response.formatStreams 
+			    sources = [];
+			    response.formatStreams.forEach(function(item, i, arr) {
+			    	if(!item.resolution || item.resolution == '144p') return;
+			    	sources.push({
+			    		file: item.url,
+			    		label: item.resolution,
+			    		type: "mp4",
+			    		default: true
+			          //type: "video/webm; codecs=\"vp9\""
+			      });
+			    });
+			    console.info('result', sources);
 
-    document.title = response.title;
+			    document.title = response.title;
 
-    // JWPlayer Init
-    var playerInstance = jwplayer("player");
-    playerInstance.setup({
-      sources: sources,
-      autostart: false,
-      image: "https://img.youtube.com/vi/" + response.videoId + "/sddefault.jpg",
-      title: response.title,
-      flashplayer: "/jwplayer.flash.swf"
-      // preload: "none",
-    });
-    // Download button
-    playerInstance.addButton('/downloadButton.svg', 'Download Video', function(){
-        var videoSrc = jwplayer("player").getPlaylist()[0];
-        var link = document.createElement("a");
-        link.setAttribute('download', videoSrc['title']);
-        link.href = videoSrc['file'];
-        document.body.appendChild(link);
-        link.click();
-        link.remove();
-    }, 'download-video-button');
-    /*document.querySelector('.jw-icon-fullscreen').onclick = function(){
-        if((window.screen.availHeight || window.screen.height-30) <= window.innerHeight) {
-          makeLandscape();
-        } else {
-          window.screen.orientation.unlock();
-        }
-        //if( (screen.availHeight || screen.height-30) <= window.innerHeight) {
-            //if(window.screen.orientation){
-                //window.screen.orientation.lock("landscape").catch(function() {});
-            //}
-        //} else {
-           //if(window.screen.orientation){
-               //window.screen.orientation.unlock();
-           //}
-        //}
-    };*/
-  }
-});
+			    // JWPlayer Init
+			    var playerInstance = jwplayer("player");
+			    playerInstance.setup({
+			    	sources: sources,
+			    	autostart: false,
+			    	image: "https://img.youtube.com/vi/" + response.videoId + "/sddefault.jpg",
+			    	title: response.title,
+			    	flashplayer: "/jwplayer.flash.swf"
+			      	// preload: "none",
+			  	});
+			    // Download button
+			    playerInstance.addButton('/downloadButton.svg', 'Download Video', function(){
+			    	var videoSrc = jwplayer("player").getPlaylist()[0];
+			    	var link = document.createElement("a");
+			    	link.setAttribute('download', videoSrc['title']);
+			    	link.href = videoSrc['file'];
+			    	document.body.appendChild(link);
+			    	link.click();
+			    	link.remove();
+			    }, 'download-video-button');
 
-function checkFullScreen() { 
-if (!window.screenTop && !window.screenY) { 
-//notfullscr
-  if(screen.orientation){
-       screen.orientation.unlock();
-  }
- } else { 
-//fullscr
-  if(screen.orientation){
-     try{
-     screen.orientation.lock("landscape");
-     } catch(e){}
-  }
- } 
-} 
-document.addEventListener('webkitfullscreenchange', function(e) { checkFullScreen(); }, false); 
-document.addEventListener('mozfullscreenchange', function(e) { checkFullScreen(); }, false); 
-document.addEventListener('fullscreenchange', function(e) { checkFullScreen(); }, false);
-
-/*function makeLandscape() {
-    // this works on android, not iOS
-    if (screen.orientation && screen.orientation.lock) {
-      screen.orientation.lock('landscape');
-    }
-}*/
-
-/*var sources = [
-  {
-    file:
-      "https://r3---sn-5goeen7y.googlevideo.com/videoplayback?expire=1633172154&ei=WuZXYamaBtbZ7QTt-YngAw&ip=95.216.24.230&id=o-AJn9jX_smckYxSMtPxoHuL_vNzHhrMpDXBOgS1r0Fiih&itag=136&source=youtube&requiressl=yes&mh=dF&mm=31%2C29&mn=sn-5goeen7y%2Csn-5go7yne6&ms=au%2Crdu&mv=m&mvi=3&pl=22&initcwndbps=1191250&vprv=1&mime=video%2Fmp4&gir=yes&clen=116464478&dur=1076.074&lmt=1633020835908974&mt=1633150376&fvip=6&keepalive=yes&fexp=24001373%2C24007246&beids=9466587&c=ANDROID&txp=5516222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRQIgUF_2cQ5HXuH2wdFYFP65ED3paeRyjkNV8gMBscuKy5UCIQDateXYSrCR1dlejYrF5c23gknCPywLoln956elXTZ5HQ%3D%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAP6rNcurEMwa3v40Oe2Cu_6sRwi7b4TiLjavgZOC44OQAiAhoHhbJJ-b9oVUNNSrMya72dqlEXX91NPQMmiZjjJNzA%3D%3D&host=r3---sn-5goeen7y.googlevideo.com",
-    label: "720p",
-    type: "mp4"
-  },
-  {
-    file:
-      "https://r3---sn-5goeen7y.googlevideo.com/videoplayback?expire=1633172154&ei=WuZXYamaBtbZ7QTt-YngAw&ip=95.216.24.230&id=o-AJn9jX_smckYxSMtPxoHuL_vNzHhrMpDXBOgS1r0Fiih&itag=137&source=youtube&requiressl=yes&mh=dF&mm=31%2C29&mn=sn-5goeen7y%2Csn-5go7yne6&ms=au%2Crdu&mv=m&mvi=3&pl=22&initcwndbps=1191250&vprv=1&mime=video%2Fmp4&gir=yes&clen=220478466&dur=1076.074&lmt=1633020835949191&mt=1633150376&fvip=6&keepalive=yes&fexp=24001373%2C24007246&beids=9466587&c=ANDROID&txp=5516222&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAOWuq9vPYlJ23IUpeAmjzG6fqw0OaETR6QbwRThIG1fbAiEAm3vNyC_6FH4FFy2Lsf6qwNQv73VOg7LWsbLcEbWjRLs%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIhAP6rNcurEMwa3v40Oe2Cu_6sRwi7b4TiLjavgZOC44OQAiAhoHhbJJ-b9oVUNNSrMya72dqlEXX91NPQMmiZjjJNzA%3D%3D&host=r3---sn-5goeen7y.googlevideo.com",
-    label: "1080p",
-    type: "mp4"
-  }
-];
-var playerInstance = jwplayer("player");
-playerInstance.setup({
-  sources: sources,
-  autostart: false,
-  image: "https://img.youtube.com/vi/Htb4_Vuovi0/sddefault.jpg"
-});*/
-
-</script>
+			    jwplayer("player").on('fullscreen', function (e) {
+			    	var isFullScreen = jwplayer("player").getFullscreen();
+			    	if(isFullScreen && screen.orientation){
+			    		screen.orientation.lock("landscape");
+			    	} else if(screen.orientation) {
+			    		screen.orientation.unlock();
+			    	}
+			    });
+			}
+		});
+	</script>
 </body>
 </html>
