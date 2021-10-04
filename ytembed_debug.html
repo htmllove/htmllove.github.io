@@ -176,8 +176,10 @@
 			    	console.info('Fullscreen event');
 			    	var isFullScreen = jwplayer("player").getFullscreen();
 			    	if(isFullScreen && window.screen.orientation){
+			    		console.info('Fullscreen ON');
 			    		window.screen.orientation.lock("landscape");
 			    	} else if(window.screen.orientation) {
+			    		console.info('Fullscreen OFF');
 			    		window.screen.orientation.unlock();
 			    	}
 			    });
