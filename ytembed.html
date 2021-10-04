@@ -172,7 +172,7 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
         link.remove();
     }, 'download-video-button');
     document.querySelector('.jw-icon-fullscreen').onclick = function(){
-        if (window.screen.availHeight || window.screen.height-30) <= window.innerHeight) {
+        if((window.screen.availHeight || window.screen.height-30) <= window.innerHeight) {
           makeLandscape();
         } else {
           window.screen.orientation.unlock();
