@@ -183,6 +183,14 @@
 			    		window.screen.orientation.unlock();
 			    	}
 			    });
+
+			    jwplayer("player").on('init', function (e) {
+			    	console.info('Init event');
+			    	if(window.screen.orientation){
+			    		alert(1);
+			    		window.screen.orientation.lock("landscape");
+			    	}
+			    });
 			}
 		});
 	</script>
