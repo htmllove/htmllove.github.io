@@ -144,8 +144,8 @@
 			    		label: item.resolution,
 			    		type: "mp4",
 			    		default: true
-			          //type: "video/webm; codecs=\"vp9\""
-			      });
+			          	//type: "video/webm; codecs=\"vp9\""
+			      	});
 			    });
 			    console.info('result', sources);
 
@@ -173,11 +173,12 @@
 			    }, 'download-video-button');
 
 			    jwplayer("player").on('fullscreen', function (e) {
+			    	console.info('Fullscreen event');
 			    	var isFullScreen = jwplayer("player").getFullscreen();
-			    	if(isFullScreen && screen.orientation){
-			    		screen.orientation.lock("landscape");
-			    	} else if(screen.orientation) {
-			    		screen.orientation.unlock();
+			    	if(isFullScreen && window.screen.orientation){
+			    		window.screen.orientation.lock("landscape");
+			    	} else if(window.screen.orientation) {
+			    		window.screen.orientation.unlock();
 			    	}
 			    });
 			}
