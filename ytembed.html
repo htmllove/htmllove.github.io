@@ -172,7 +172,12 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
         link.remove();
     }, 'download-video-button');
     document.querySelector('.jw-icon-fullscreen').onclick = function(){
-        if( (screen.availHeight || screen.height-30) <= window.innerHeight) {
+        if (window.screen.availHeight || window.screen.height-30) <= window.innerHeight) {
+          makeLandscape();
+        } else {
+          window.screen.orientation.unlock();
+        }
+        /*if( (screen.availHeight || screen.height-30) <= window.innerHeight) {
             if(window.screen.orientation){
                 window.screen.orientation.lock("landscape").catch(function() {});
             }
@@ -180,10 +185,17 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
            if(window.screen.orientation){
                window.screen.orientation.unlock();
            }
-        }
+        }*/
     };
   }
 });
+
+function makeLandscape() {
+    // this works on android, not iOS
+    if (screen.orientation && screen.orientation.lock) {
+      screen.orientation.lock('landscape');
+    }
+}
 
 /*var sources = [
   {
