@@ -171,31 +171,50 @@ ajax.get('https://invidious.snopyta.org/api/v1/videos/' + ytid, null, function(r
         link.click();
         link.remove();
     }, 'download-video-button');
-    document.querySelector('.jw-icon-fullscreen').onclick = function(){
+    /*document.querySelector('.jw-icon-fullscreen').onclick = function(){
         if((window.screen.availHeight || window.screen.height-30) <= window.innerHeight) {
           makeLandscape();
         } else {
           window.screen.orientation.unlock();
         }
-        /*if( (screen.availHeight || screen.height-30) <= window.innerHeight) {
-            if(window.screen.orientation){
-                window.screen.orientation.lock("landscape").catch(function() {});
-            }
-        } else {
-           if(window.screen.orientation){
-               window.screen.orientation.unlock();
-           }
-        }*/
-    };
+        //if( (screen.availHeight || screen.height-30) <= window.innerHeight) {
+            //if(window.screen.orientation){
+                //window.screen.orientation.lock("landscape").catch(function() {});
+            //}
+        //} else {
+           //if(window.screen.orientation){
+               //window.screen.orientation.unlock();
+           //}
+        //}
+    };*/
   }
 });
 
-function makeLandscape() {
+function checkFullScreen() { 
+if (!window.screenTop && !window.screenY) { 
+//notfullscr
+  if(screen.orientation){
+       screen.orientation.unlock();
+  }
+ } else { 
+//fullscr
+  if(screen.orientation){
+     try{
+     screen.orientation.lock("landscape");
+     } catch(e){}
+  }
+ } 
+} 
+document.addEventListener('webkitfullscreenchange', function(e) { checkFullScreen(); }, false); 
+document.addEventListener('mozfullscreenchange', function(e) { checkFullScreen(); }, false); 
+document.addEventListener('fullscreenchange', function(e) { checkFullScreen(); }, false);
+
+/*function makeLandscape() {
     // this works on android, not iOS
     if (screen.orientation && screen.orientation.lock) {
       screen.orientation.lock('landscape');
     }
-}
+}*/
 
 /*var sources = [
   {
