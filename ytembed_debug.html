@@ -184,7 +184,7 @@
 			    	}
 			    });
 
-			    jwplayer("player").on('init', function (e) {
+			    jwplayer("player").on('beforePlay', function (e) {
 			    	console.info('Init event');
 			    	if(window.screen.orientation){
 			    		alert(1);
