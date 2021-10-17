@@ -1,4 +1,5 @@
 # Proxy Sources List
+--https://github.com/monosans/proxy-scraper-checker/blob/main/config.py#L1
 
 ## HTTP Proxy
 HTTP_SOURCES = {
