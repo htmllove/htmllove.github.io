@@ -1,5 +1,4 @@
 # Proxy Sources List
---https://github.com/monosans/proxy-scraper-checker/blob/main/config.py#L1
 
 ## HTTP Proxy
 HTTP_SOURCES = {
@@ -50,3 +49,5 @@ SOCKS5_SOURCES = {
     "https://www.proxy-list.download/api/v1/get?type=socks5",
     "https://www.proxyscan.io/download?type=socks5",
 }
+
+Источник: https://github.com/monosans/proxy-scraper-checker/blob/main/config.py
